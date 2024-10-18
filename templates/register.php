@@ -26,6 +26,7 @@ $errors = isset($_SESSION['errors']) ? $_SESSION['errors'] : [];
             unset($errors['user_exist']);
         }
         ?>
+        
         <form method="POST" action="user-account.php">
             <div class="input-group">
                 <i class="fas fa-user"></i>
@@ -82,13 +83,7 @@ $errors = isset($_SESSION['errors']) ? $_SESSION['errors'] : [];
             <input type="submit" class="btn" value="Sign Up" name="signup">
         </form>
 
-        <p class="or">----------or--------</p>
-
-        <div class="icons">
-            <i class="fab fa-google"></i>
-            <i class="fab fa-facebook"></i>
-        </div>
-
+        
         <div class="links">
             <p>Already Have Account?</p>
             <a href="login.php">Sign In</a>

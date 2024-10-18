@@ -49,23 +49,18 @@ $errors = isset($_SESSION['errors']) ? $_SESSION['errors'] : [];
       <input type="submit" class="btn" value="Sign In" name="signin">
     </form>
 
-    <p class="or">----------or--------</p>
-    <div class="icons">
-      <i class="fab fa-google"></i>
-      <i class="fab fa-facebook"></i>
-    </div>
-    <div class="links">
+    <div>
       <p>Don't have an account yet?</p>
       <a href="register.php">Sign Up</a>
     </div>
   </div>
 
-  <script src="script.js"></script>
+  <script src="../js/script.js"></script>
 </body>
 </html>
 
 <?php
-// Clear session errors after displaying them
+
 if (isset($_SESSION['errors'])) {
     unset($_SESSION['errors']);
 }

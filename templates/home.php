@@ -1,7 +1,12 @@
 <?php
+    
     require_once '../db/dbConnect.php'; 
+    session_start(); 
 
-    ?>
+    $username = isset($_SESSION['user']) ? $_SESSION['user']['name'] : 'Guest';
+
+
+ ?>
     <!DOCTYPE html>
     <html lang="en">
     <head>
@@ -13,6 +18,11 @@
     </head>
     <body>
     <div class="main-section">
+
+        <div class="header">
+            <h1>Welcome, <a href="profile.php" class="username"><?php echo htmlspecialchars($username); ?></a>!</h1> <!-- Make username clickable -->
+        </div>
+
        <div class="add-section">
        <form action="/auth_module/assets/add.php" method="POST" autocomplete="off">
              <?php if(isset($_GET['mess']) && $_GET['mess'] == 'error'){ ?>
@@ -36,13 +46,16 @@
     
                 <?php while($todo = $todos->fetch(PDO::FETCH_ASSOC)) { ?>
                     <div class="todo-item">
-                        <span id="<?php echo $todo['id']; ?>"class="remove-to-do">x</span>
-                        <?php if($todo['checked']){ ?> 
-                            <input type="checkbox"
-                                   class="check-box"
-                                   data-todo-id ="<?php echo $todo['id']; ?>"
-                                   checked />
-                            <h2 class="checked"><?php echo $todo['title'] ?></h2>
+                        <div>
+                            <span id="<?php echo $todo['id']; ?>"class="remove-to-do">x</span>
+                            <?php if($todo['checked']){ ?> 
+                                <div>
+                                <input type="checkbox"
+                                    class="check-box"
+                                    data-todo-id ="<?php echo $todo['id']; ?>"
+                                    checked />
+                                <h2 class="checked"><?php echo $todo['title'] ?></h2>
+                        </div>
                         <?php }else { ?>
                             <input type="checkbox"data-todo-id ="<?php echo $todo['id']; ?>"
                                    class="check-box" />

@@ -1,14 +1,14 @@
 <?php
 
 if(isset($_POST['id'])){
-    require '../db_conn.php';
+    require '../db/dbconnect.php';
 
     $id = $_POST['id'];
 
     if(empty($id)){
        echo 'error';
     }else {
-        $todos = $conn->prepare("SELECT id, checked FROM todos WHERE id=?");
+        $todos = $pdo->prepare("SELECT id, checked FROM tasks WHERE id=?");
         $todos->execute([$id]);
 
         $todo = $todos->fetch();
@@ -17,16 +17,16 @@ if(isset($_POST['id'])){
 
         $uChecked = $checked ? 0 : 1;
 
-        $res = $conn->query("UPDATE todos SET checked=$uChecked WHERE id=$uId");
+        $res = $pdo->query("UPDATE tasks SET checked=$uChecked WHERE id=$uId");
 
         if($res){
             echo $checked;
         }else {
             echo "error";
         }
-        $conn = null;
+        $pdo = null;
         exit();
     }
 }else {
-    header("Location: ../index.php?mess=error");
+    header("Location: ../templates/home.php?mess=error");
 }
