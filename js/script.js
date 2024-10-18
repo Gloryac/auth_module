@@ -1,22 +1,5 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Password visibility toggle
-    const eyeIcon = document.getElementById("eye");
-    const passwordField = document.getElementById("password");
-    if (eyeIcon && passwordField) {
-        eyeIcon.addEventListener("click", () => {
-            if (passwordField.type === "password" && passwordField.value) {
-                passwordField.type = "text";
-                eyeIcon.classList.remove("fa-eye");
-                eyeIcon.classList.add("fa-eye-slash");
-            } else {
-                passwordField.type = "password";
-                eyeIcon.classList.remove("fa-eye-slash");
-                eyeIcon.classList.add("fa-eye");
-            }
-        });
-    }
-
-   // Remove todo
+      // Remove 
    document.querySelectorAll('.remove-to-do').forEach(item => {
     item.addEventListener('click', async function() {
         const id = this.getAttribute('id');
@@ -39,7 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// Check/uncheck todo
+// Check/uncheck 
 document.querySelectorAll('.check-box').forEach(item => {
     item.addEventListener('click', async function() {
         const id = this.getAttribute('data-todo-id');
