@@ -50,26 +50,37 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     <link rel="stylesheet" href="../css/style.css"> 
 </head>
 <body>
-    <h1>Edit Profile</h1>
+    <div class ="container" id="profile">
+        <h1>Edit Profile</h1>
+        <a href="logout.php" class="logout">Logout</a>
 
-    <?php if (isset($error)) { ?>
-        <div class="error-message">
-            <p><?php echo htmlspecialchars($error); ?></p>
+        <?php if (isset($error)) { ?>
+            <div class="error-message">
+                <p><?php echo htmlspecialchars($error); ?></p>
+            </div>
+        <?php } ?>
+
+        <form action="profile.php" method="POST">
+            <input type="hidden" name="user_id" value="<?php echo $userId; ?>">
+            <div class = "input-group">
+                <label for="name">Name:</label>
+                <input type="text" name="name" id="name" value="<?php echo htmlspecialchars($username); ?>" required>
+            </div>
+            <div class = "input-group">
+                <label for="email">Email:</label>
+                <input type="email" name="email" id="email" value="<?php echo htmlspecialchars($email); ?>" required>
         </div>
-    <?php } ?>
 
-    <form action="profile.php" method="POST">
-        <input type="hidden" name="user_id" value="<?php echo $userId; ?>">
+            <button type="submit">Update</button>
 
-        <label for="name">Name:</label>
-        <input type="text" name="name" id="name" value="<?php echo htmlspecialchars($username); ?>" required>
+            
+        </form>
+        <div class ="links">
+            <p><a href="home.php">Cancel</a></p>
+        </div>
 
-        <label for="email">Email:</label>
-        <input type="email" name="email" id="email" value="<?php echo htmlspecialchars($email); ?>" required>
+    </div>
 
-        <button type="submit">Update</button>
-    </form>
-
-    <p><a href="home.php">Cancel</a></p>
+   
 </body>
 </html>

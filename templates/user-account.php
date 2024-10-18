@@ -52,7 +52,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['signup'])) {
         'created_at' => $created_at
     ]);
 
-    header('Location: home.php');
+    header('Location: login.php');
     exit();
 }
 

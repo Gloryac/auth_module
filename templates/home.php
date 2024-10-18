@@ -50,12 +50,12 @@
                             <span id="<?php echo $todo['id']; ?>"class="remove-to-do">x</span>
                             <?php if($todo['checked']){ ?> 
                                 <div>
-                                <input type="checkbox"
-                                    class="check-box"
-                                    data-todo-id ="<?php echo $todo['id']; ?>"
-                                    checked />
-                                <h2 class="checked"><?php echo $todo['title'] ?></h2>
-                        </div>
+                                    <input type="checkbox"
+                                        class="check-box"
+                                        data-todo-id ="<?php echo $todo['id']; ?>"
+                                        checked />
+                                    <h2 class="checked"><?php echo $todo['title'] ?></h2>
+                            </div>
                         <?php }else { ?>
                             <input type="checkbox"data-todo-id ="<?php echo $todo['id']; ?>"
                                    class="check-box" />
